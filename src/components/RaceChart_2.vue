@@ -1,7 +1,7 @@
 /* eslint-env browser */
 <template>
     <div style="margin : 15px;">
-        <h3 style="margin-left:450px;font-weight: bold;font-size: 50px;margin-bottom: 10px;">
+        <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;">
             World population growth from 1800 - 2019
         </h3>
         <div id="chart">
@@ -29,8 +29,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 600
-            const top_n = 15;
+            const tickDuration = 1000
+            const top_n = 20;
 
             const height = 1650;
             const width = 3500;
@@ -56,7 +56,7 @@ export default {
 
             const margin = {
                 top: 60,
-                right: 100,
+                right: 220,
                 bottom: 5,
                 left: 450
             };
@@ -102,8 +102,8 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-
             let year = 1880;
+
             //caption;
             //title;
             //subTitle;
@@ -120,7 +120,7 @@ export default {
             console.log("Execution");
             
             let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
-                .sort((a,b) => b.value - a.value)
+                .sort((a,b) => a.value - b.value)
                 .slice(0,top_n);
 
             console.log(yearSlice);
@@ -132,7 +132,7 @@ export default {
                 .range([margin.left, width-margin.right-110]);
             
             let y = d3.scaleLinear()
-                .domain([top_n, 0])
+                .domain([0, top_n])
                 .range([height-margin.bottom, margin.top]);
 
 
@@ -371,7 +371,7 @@ export default {
 
 <style>
 text{
-  font-size: 36px;
+  font-size: 50px;
   font-family: Open Sans, sans-serif;
 }
 text.title{
@@ -388,7 +388,7 @@ text.caption{
   fill: #777777;
 }
 text.label{
-  font-weight: 600;
+  font-weight: 100;
 }
 text.yearText{
   font-size: 250px;
