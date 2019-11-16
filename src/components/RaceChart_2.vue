@@ -13,7 +13,8 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-import brandData from "../assets/ExpectedJsonFile.json";
+//import brandData from "../assets/ExpectedJsonFile.json";
+import brandData from "../assets/babynames.json";
 import imgUrl from "../assets/world-map.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
 
@@ -102,7 +103,7 @@ export default {
                 })
                 .html('Source: Interbrand');*/
 
-            let year = 1800;
+            let year = 1880;
             //caption;
             //title;
             //subTitle;
@@ -354,7 +355,7 @@ export default {
                 
                 yearText.html(~~year);
                 
-                if(year == 2099) ticker.stop();
+                if(year == 2018) ticker.stop();
                 year = d3.format('.1f')((+year) + 1);
             },tickDuration);
 
