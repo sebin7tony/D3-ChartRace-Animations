@@ -1,0 +1,1094 @@
+[
+    {
+        "name": "Nokia",
+        "value": 265.615,
+        "year": "2005",
+        "lastValue": 265.615
+    },
+    {
+        "name": "Nokia",
+        "value": 344.916,
+        "year": "2006",
+        "lastValue": 265.615
+    },
+    {
+        "name": "Nokia",
+        "value": 435.45300000000003,
+        "year": "2007",
+        "lastValue": 344.916
+    },
+    {
+        "name": "Nokia",
+        "value": 472.315,
+        "year": "2008",
+        "lastValue": 435.45300000000003
+    },
+    {
+        "name": "Nokia",
+        "value": 440.8816,
+        "year": "2009",
+        "lastValue": 472.315
+    },
+    {
+        "name": "Nokia",
+        "value": 461.3182,
+        "year": "2010",
+        "lastValue": 440.8816
+    },
+    {
+        "name": "Nokia",
+        "value": 422.4783,
+        "year": "2011",
+        "lastValue": 461.3182
+    },
+    {
+        "name": "Nokia",
+        "value": 333.93800000000005,
+        "year": "2012",
+        "lastValue": 422.4783
+    },
+    {
+        "name": "Nokia",
+        "value": 250.7931,
+        "year": "2013",
+        "lastValue": 333.93800000000005
+    },
+    {
+        "name": "Nokia",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 250.7931
+    },
+    {
+        "name": "Nokia",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Nokia",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Nokia",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Nokia",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Motorola",
+        "value": 144.92,
+        "year": "2005",
+        "lastValue": 144.92
+    },
+    {
+        "name": "Motorola",
+        "value": 209.25099999999998,
+        "year": "2006",
+        "lastValue": 144.92
+    },
+    {
+        "name": "Motorola",
+        "value": 164.30700000000002,
+        "year": "2007",
+        "lastValue": 209.25099999999998
+    },
+    {
+        "name": "Motorola",
+        "value": 106.59,
+        "year": "2008",
+        "lastValue": 164.30700000000002
+    },
+    {
+        "name": "Motorola",
+        "value": 58.4752,
+        "year": "2009",
+        "lastValue": 106.59
+    },
+    {
+        "name": "Motorola",
+        "value": 38.5537,
+        "year": "2010",
+        "lastValue": 58.4752
+    },
+    {
+        "name": "Motorola",
+        "value": 40.269,
+        "year": "2011",
+        "lastValue": 38.5537
+    },
+    {
+        "name": "Motorola",
+        "value": 33.9163,
+        "year": "2012",
+        "lastValue": 40.269
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 33.9163
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Motorola",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "LG",
+        "value": 54.9246,
+        "year": "2005",
+        "lastValue": 54.9246
+    },
+    {
+        "name": "LG",
+        "value": 61.986000000000004,
+        "year": "2006",
+        "lastValue": 54.9246
+    },
+    {
+        "name": "LG",
+        "value": 78.5763,
+        "year": "2007",
+        "lastValue": 61.986000000000004
+    },
+    {
+        "name": "LG",
+        "value": 102.5554,
+        "year": "2008",
+        "lastValue": 78.5763
+    },
+    {
+        "name": "LG",
+        "value": 122.0553,
+        "year": "2009",
+        "lastValue": 102.5554
+    },
+    {
+        "name": "LG",
+        "value": 114.1546,
+        "year": "2010",
+        "lastValue": 122.0553
+    },
+    {
+        "name": "LG",
+        "value": 86.3709,
+        "year": "2011",
+        "lastValue": 114.1546
+    },
+    {
+        "name": "LG",
+        "value": 58.0159,
+        "year": "2012",
+        "lastValue": 86.3709
+    },
+    {
+        "name": "LG",
+        "value": 69.0245,
+        "year": "2013",
+        "lastValue": 58.0159
+    },
+    {
+        "name": "LG",
+        "value": 76.096,
+        "year": "2014",
+        "lastValue": 69.0245
+    },
+    {
+        "name": "LG",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 76.096
+    },
+    {
+        "name": "LG",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "LG",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "LG",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Samsung",
+        "value": 103.75399999999999,
+        "year": "2005",
+        "lastValue": 103.75399999999999
+    },
+    {
+        "name": "Samsung",
+        "value": 116.48,
+        "year": "2006",
+        "lastValue": 103.75399999999999
+    },
+    {
+        "name": "Samsung",
+        "value": 154.541,
+        "year": "2007",
+        "lastValue": 116.48
+    },
+    {
+        "name": "Samsung",
+        "value": 199.18200000000002,
+        "year": "2008",
+        "lastValue": 154.541
+    },
+    {
+        "name": "Samsung",
+        "value": 235.77200000000002,
+        "year": "2009",
+        "lastValue": 199.18200000000002
+    },
+    {
+        "name": "Samsung",
+        "value": 281.0658,
+        "year": "2010",
+        "lastValue": 235.77200000000002
+    },
+    {
+        "name": "Samsung",
+        "value": 313.9042,
+        "year": "2011",
+        "lastValue": 281.0658
+    },
+    {
+        "name": "Samsung",
+        "value": 384.6312,
+        "year": "2012",
+        "lastValue": 313.9042
+    },
+    {
+        "name": "Samsung",
+        "value": 444.4442,
+        "year": "2013",
+        "lastValue": 384.6312
+    },
+    {
+        "name": "Samsung",
+        "value": 392.546,
+        "year": "2014",
+        "lastValue": 444.4442
+    },
+    {
+        "name": "Samsung",
+        "value": 320.4,
+        "year": "2015",
+        "lastValue": 392.546
+    },
+    {
+        "name": "Samsung",
+        "value": 306.4466,
+        "year": "2016",
+        "lastValue": 320.4
+    },
+    {
+        "name": "Samsung",
+        "value": 321.2633,
+        "year": "2017",
+        "lastValue": 306.4466
+    },
+    {
+        "name": "Samsung",
+        "value": 295.0437,
+        "year": "2018",
+        "lastValue": 321.2633
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 93.4145,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 54.8734,
+        "year": "2009",
+        "lastValue": 93.4145
+    },
+    {
+        "name": "Sony ericson",
+        "value": 41.8192,
+        "year": "2010",
+        "lastValue": 54.8734
+    },
+    {
+        "name": "Sony ericson",
+        "value": 32.5975,
+        "year": "2011",
+        "lastValue": 41.8192
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2012",
+        "lastValue": 32.5975
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Sony ericson",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 23.8147,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Huawei",
+        "value": 40.6634,
+        "year": "2011",
+        "lastValue": 23.8147
+    },
+    {
+        "name": "Huawei",
+        "value": 47.2883,
+        "year": "2012",
+        "lastValue": 40.6634
+    },
+    {
+        "name": "Huawei",
+        "value": 53.2951,
+        "year": "2013",
+        "lastValue": 47.2883
+    },
+    {
+        "name": "Huawei",
+        "value": 70.499,
+        "year": "2014",
+        "lastValue": 53.2951
+    },
+    {
+        "name": "Huawei",
+        "value": 104.0947,
+        "year": "2015",
+        "lastValue": 70.499
+    },
+    {
+        "name": "Huawei",
+        "value": 132.8249,
+        "year": "2016",
+        "lastValue": 104.0947
+    },
+    {
+        "name": "Huawei",
+        "value": 150.534,
+        "year": "2017",
+        "lastValue": 132.8249
+    },
+    {
+        "name": "Huawei",
+        "value": 202.9014,
+        "year": "2018",
+        "lastValue": 150.534
+    },
+    {
+        "name": "Apple",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Apple",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Apple",
+        "value": 2.3,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Apple",
+        "value": 12.0,
+        "year": "2008",
+        "lastValue": 2.3
+    },
+    {
+        "name": "Apple",
+        "value": 24.889,
+        "year": "2009",
+        "lastValue": 12.0
+    },
+    {
+        "name": "Apple",
+        "value": 46.5983,
+        "year": "2010",
+        "lastValue": 24.889
+    },
+    {
+        "name": "Apple",
+        "value": 89.2632,
+        "year": "2011",
+        "lastValue": 46.5983
+    },
+    {
+        "name": "Apple",
+        "value": 130.1332,
+        "year": "2012",
+        "lastValue": 89.2632
+    },
+    {
+        "name": "Apple",
+        "value": 150.7859,
+        "year": "2013",
+        "lastValue": 130.1332
+    },
+    {
+        "name": "Apple",
+        "value": 191.426,
+        "year": "2014",
+        "lastValue": 150.7859
+    },
+    {
+        "name": "Apple",
+        "value": 225.8506,
+        "year": "2015",
+        "lastValue": 191.426
+    },
+    {
+        "name": "Apple",
+        "value": 216.06400000000002,
+        "year": "2016",
+        "lastValue": 225.8506
+    },
+    {
+        "name": "Apple",
+        "value": 214.9244,
+        "year": "2017",
+        "lastValue": 216.06400000000002
+    },
+    {
+        "name": "Apple",
+        "value": 209.0484,
+        "year": "2018",
+        "lastValue": 214.9244
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2011",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2012",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 85.2995,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Oppo",
+        "value": 112.124,
+        "year": "2017",
+        "lastValue": 85.2995
+    },
+    {
+        "name": "Oppo",
+        "value": 118.837,
+        "year": "2018",
+        "lastValue": 112.124
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2011",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2012",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 56.528999999999996,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 65.6186,
+        "year": "2015",
+        "lastValue": 56.528999999999996
+    },
+    {
+        "name": "Xiaomi",
+        "value": 80.0,
+        "year": "2016",
+        "lastValue": 65.6186
+    },
+    {
+        "name": "Xiaomi",
+        "value": 95.0,
+        "year": "2017",
+        "lastValue": 80.0
+    },
+    {
+        "name": "Xiaomi",
+        "value": 122.387,
+        "year": "2018",
+        "lastValue": 95.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 28.7687,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 56.8818,
+        "year": "2011",
+        "lastValue": 28.7687
+    },
+    {
+        "name": "ZTE",
+        "value": 67.3444,
+        "year": "2012",
+        "lastValue": 56.8818
+    },
+    {
+        "name": "ZTE",
+        "value": 59.8988,
+        "year": "2013",
+        "lastValue": 67.3444
+    },
+    {
+        "name": "ZTE",
+        "value": 53.91,
+        "year": "2014",
+        "lastValue": 59.8988
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 53.91
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "ZTE",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 24.6884,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 43.2669,
+        "year": "2011",
+        "lastValue": 24.6884
+    },
+    {
+        "name": "HTC",
+        "value": 32.1218,
+        "year": "2012",
+        "lastValue": 43.2669
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 32.1218
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "HTC",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2011",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2012",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 185.66,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 185.66,
+        "year": "2015",
+        "lastValue": 185.66
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2016",
+        "lastValue": 185.66
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2017",
+        "lastValue": 0.0
+    },
+    {
+        "name": "Microsoft",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2005",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2006",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2007",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2008",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2009",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2010",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2011",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2012",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2013",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2014",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2015",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 72.4086,
+        "year": "2016",
+        "lastValue": 0.0
+    },
+    {
+        "name": "BBK",
+        "value": 72.4086,
+        "year": "2017",
+        "lastValue": 72.4086
+    },
+    {
+        "name": "BBK",
+        "value": 0.0,
+        "year": "2018",
+        "lastValue": 72.4086
+    }
+]

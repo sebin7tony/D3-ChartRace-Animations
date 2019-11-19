@@ -2,7 +2,7 @@
 <template>
     <div style="margin : 15px;">
         <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;">
-            World population growth from 1800 - 2019
+            Annual sales by mobile phone manufacturers from 2005 - 2018 (in millions)
         </h3>
         <div id="chart">
         </div>
@@ -14,7 +14,7 @@
 import * as d3 from "d3";
 import "d3-selection-multi";
 //import brandData from "../assets/ExpectedJsonFile.json";
-import brandData from "../assets/babynames.json";
+import brandData from "../assets/mobile_manufacture.json";
 import imgUrl from "../assets/world-map.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
 
@@ -29,8 +29,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 1000
-            const top_n = 20;
+            const tickDuration = 3000
+            const top_n = 7;
 
             const height = 1650;
             const width = 3500;
@@ -102,7 +102,7 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-            let year = 1880;
+            let year = 2005;
 
             //caption;
             //title;
@@ -120,7 +120,7 @@ export default {
             console.log("Execution");
             
             let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
-                .sort((a,b) => a.value - b.value)
+                .sort((a,b) => b.value - a.value)
                 .slice(0,top_n);
 
             console.log(yearSlice);
@@ -132,7 +132,7 @@ export default {
                 .range([margin.left, width-margin.right-110]);
             
             let y = d3.scaleLinear()
-                .domain([0, top_n])
+                .domain([top_n,0])
                 .range([height-margin.bottom, margin.top]);
 
 
