@@ -2,7 +2,7 @@
 <template>
     <div style="margin : 15px;">
         <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;">
-            Annual sales by mobile phone manufacturers from 2005 - 2018 (in millions)
+            Future population growth from 2020 - 2100
         </h3>
         <div id="chart">
         </div>
@@ -13,9 +13,10 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-//import brandData from "../assets/ExpectedJsonFile.json";
-import brandData from "../assets/mobile_manufacture.json";
+import brandData from "../assets/population.json";
+//import brandData from "../assets/mobile_manufacture.json";
 import imgUrl from "../assets/world-map.png";
+//import india from "../assets/images/india.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
 
 
@@ -29,8 +30,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 3000
-            const top_n = 7;
+            const tickDuration = 1500
+            const top_n = 15;
 
             const height = 1650;
             const width = 3500;
@@ -46,6 +47,17 @@ export default {
                         'stroke-linejoin': 'round',
                         opacity: 1
                     }); 
+            }
+
+            const getImgUrl = function(imagename) {
+                let result;
+                try {
+                    result = require("../assets/images/"+imagename+".png");
+                }
+                catch (e) {
+                    result  = undefined;
+                }
+                return result;
             }
 
             const svg = d3.select("#chart").append("svg")
@@ -102,7 +114,7 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-            let year = 2005;
+            let year = 2020;
 
             //caption;
             //title;
@@ -114,6 +126,7 @@ export default {
                 d.value = isNaN(d.value) ? 0 : d.value,
                 d.year = +d.year,
                 d.colour = d3.hsl(Math.random()*360,0.75,0.75)
+                d.image = getImgUrl(d.name)
             });
             
             console.log(brandData);
@@ -184,6 +197,19 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html(d => d.name);
+
+            svg.selectAll('image.label')
+                .data(yearSlice, d => d.name)
+                .enter()
+                .append('svg:image')
+                .attrs({
+                    class: 'barImage',
+                    x: d => x(d.value)-125,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60,
+                    'xlink:href': d => d.image,
+                    'height' : '100px',
+                    'width' : '100px'
+                });
             
             svg.selectAll('text.valueLabel')
                 .data(yearSlice, d => d.name)
@@ -308,6 +334,47 @@ export default {
                     y: d => y(top_n+1)+5
                     })
                     .remove();
+
+                let imageLabels = svg.selectAll('.barImage').data(yearSlice, d => d.name);
+                
+                imageLabels
+                .enter()
+                .append('svg:image')
+                .attrs({
+                    class: 'barImage',
+                    x: d => x(d.value)-125,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60,
+                    'xlink:href': d => d.image,
+                    'height' : '100px',
+                    'width' : '100px'
+                })
+                .transition()
+                    .duration(tickDuration)
+                    .ease(d3.easeLinear)
+                    .attrs({
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60
+                    });
+                
+                imageLabels
+                .transition()
+                    .duration(tickDuration)
+                    .ease(d3.easeLinear)
+                    .attrs({
+                    x: d => x(d.value)-125,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60
+                    });
+                
+                imageLabels
+                .exit()
+                .transition()
+                    .duration(tickDuration)
+                    .ease(d3.easeLinear)
+                    .attrs({
+                    x: d => x(d.value)-125,
+                    y: d => y(top_n+1)+5
+                    })
+                    .remove();
+
                 
                 let valueLabels = svg.selectAll('.valueLabel').data(yearSlice, d => d.name);
                 
@@ -355,7 +422,7 @@ export default {
                 
                 yearText.html(~~year);
                 
-                if(year == 2018) ticker.stop();
+                if(year == 2099) ticker.stop();
                 year = d3.format('.1f')((+year) + 1);
             },tickDuration);
 
