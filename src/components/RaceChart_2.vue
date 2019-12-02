@@ -2,7 +2,7 @@
 <template>
     <div style="margin : 15px;">
         <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;">
-            Future population growth from 2020 - 2100
+            Top 10 run-scorers in ODI history from 1990 - 2019
         </h3>
         <div id="chart">
         </div>
@@ -13,9 +13,8 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-import brandData from "../assets/population.json";
+import brandData from "../assets/cricket_run_getter.json";
 //import brandData from "../assets/mobile_manufacture.json";
-import imgUrl from "../assets/world-map.png";
 //import india from "../assets/images/india.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
 
@@ -30,8 +29,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 1500
-            const top_n = 15;
+            const tickDuration = 3500
+            const top_n = 10;
 
             const height = 1650;
             const width = 3500;
@@ -73,16 +72,16 @@ export default {
                 left: 450
             };
                             
-            svg.append("defs")
+            /*svg.append("defs")
                 .append("pattern")
                 .attr("id", "venus")
                 .attr('patternUnits', 'userSpaceOnUse')
                 .attr("width", width)
                 .attr("height", height)
                 .append("image")
-                .attr("xlink:href", imgUrl)
+                .attr("xlink:href", getImgUrl())
                 .attr("width", width)
-                .attr("height", height);
+                .attr("height", height);*/
 
             
 
@@ -114,19 +113,28 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-            let year = 2020;
+            let year = 1990;
 
             //caption;
             //title;
             //subTitle;
+
+            let country_color ={}
+            country_color['India'] = "#3399ff"
+            country_color['Australia'] = "#cccc00"
+            country_color['Srilanka'] = "#0066cc"
+            country_color['Pakistan'] = "#00cc00"
+            country_color['West Indies'] = "#660066"
+            country_color['South Africa'] = "#006600"
+            country_color['New Zealand'] = "#333333"
             
             brandData.forEach(d => {
                 d.value = +d.value,
                 d.lastValue = +d.lastValue,
                 d.value = isNaN(d.value) ? 0 : d.value,
                 d.year = +d.year,
-                d.colour = d3.hsl(Math.random()*360,0.75,0.75)
-                d.image = getImgUrl(d.name)
+                d.colour = country_color[d.country],//d3.hsl(Math.random()*360,0.75,0.75)
+                d.image = getImgUrl(d.country)
             });
             
             console.log(brandData);
@@ -192,7 +200,7 @@ export default {
                 .append('text')
                 .attrs({
                 class: 'label',
-                x: x(0)-10,
+                x: d => x(d.value)-10,
                 y: d => y(d.rank)+5+((y(1)-y(0))/2)+1,
                 'text-anchor': 'end'
                 })
@@ -204,11 +212,11 @@ export default {
                 .append('svg:image')
                 .attrs({
                     class: 'barImage',
-                    x: d => x(d.value)-125,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60,
+                    x: x(0)-170,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90,
                     'xlink:href': d => d.image,
-                    'height' : '100px',
-                    'width' : '100px'
+                    'height' : '150px',
+                    'width' : '150px'
                 });
             
             svg.selectAll('text.valueLabel')
@@ -303,7 +311,7 @@ export default {
                 .append('text')
                 .attrs({
                     class: 'label',
-                    x: x(0)-10,
+                    x: d => x(d.value)-10,
                     y: d => y(top_n+1)+5+((y(1)-y(0))/2),
                     'text-anchor': 'end'
                 })
@@ -320,7 +328,7 @@ export default {
                 .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: x(0)-10,
+                    x: d => x(d.value)-10,
                     y: d => y(d.rank)+5+((y(1)-y(0))/2)+1
                     });
                 
@@ -330,7 +338,7 @@ export default {
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: x(0)-10,
+                    x: d => x(d.value)-10,
                     y: d => y(top_n+1)+5
                     })
                     .remove();
@@ -342,17 +350,17 @@ export default {
                 .append('svg:image')
                 .attrs({
                     class: 'barImage',
-                    x: d => x(d.value)-125,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60,
+                    x: x(0)-170,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90,
                     'xlink:href': d => d.image,
-                    'height' : '100px',
-                    'width' : '100px'
+                    'height' : '150px',
+                    'width' : '150px'
                 })
                 .transition()
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90
                     });
                 
                 imageLabels
@@ -360,8 +368,8 @@ export default {
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: d => x(d.value)-125,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-60
+                    x:  x(0)-170,
+                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90
                     });
                 
                 imageLabels
@@ -370,7 +378,7 @@ export default {
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: d => x(d.value)-125,
+                    x:  x(0)-170,
                     y: d => y(top_n+1)+5
                     })
                     .remove();
@@ -422,7 +430,7 @@ export default {
                 
                 yearText.html(~~year);
                 
-                if(year == 2099) ticker.stop();
+                if(year == 2019) ticker.stop();
                 year = d3.format('.1f')((+year) + 1);
             },tickDuration);
 
