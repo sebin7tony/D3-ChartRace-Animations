@@ -1,8 +1,8 @@
 /* eslint-env browser */
 <template>
     <div style="margin : 15px;">
-        <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;">
-            Top 10 run-scorers in ODI history from 1990 - 2019
+        <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;margin-top:30px; ">
+            Most popular programming languages from 2004 - 2019 (Popularity %)
         </h3>
         <div id="chart">
         </div>
@@ -13,7 +13,7 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-import brandData from "../assets/cricket_run_getter.json";
+import brandData from "../assets/programming.json";
 //import brandData from "../assets/mobile_manufacture.json";
 //import india from "../assets/images/india.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
@@ -29,8 +29,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 3500
-            const top_n = 10;
+            const tickDuration = 800
+            const top_n = 15;
 
             const height = 1650;
             const width = 3500;
@@ -113,34 +113,41 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-            let year = 1990;
+            let year = 2004;
+            let month = 6;
+
+            let months = {};
+            months[0] = "Jan";
+            months[1] = "Feb";
+            months[2] = "Mar";
+            months[3] = "Apr";
+            months[4] = "May";
+            months[5] = "Jun";
+            months[6] = "Jul";
+            months[7] = "Aug";
+            months[8] = "Sep";
+            months[9] = "Oct";
+            months[10] = "Nov";
+            months[11] = "Dec";
 
             //caption;
             //title;
             //subTitle;
 
-            let country_color ={}
-            country_color['India'] = "#3399ff"
-            country_color['Australia'] = "#cccc00"
-            country_color['Srilanka'] = "#0066cc"
-            country_color['Pakistan'] = "#00cc00"
-            country_color['West Indies'] = "#660066"
-            country_color['South Africa'] = "#006600"
-            country_color['New Zealand'] = "#333333"
             
             brandData.forEach(d => {
-                d.value = +d.value,
-                d.lastValue = +d.lastValue,
+                d.value = +d.value*100,
+                d.lastValue = +d.lastValue*100,
                 d.value = isNaN(d.value) ? 0 : d.value,
                 d.year = +d.year,
-                d.colour = country_color[d.country],//d3.hsl(Math.random()*360,0.75,0.75)
-                d.image = getImgUrl(d.country)
+                d.colour = d3.hsl(Math.random()*360,0.75,0.75)
+                d.image = getImgUrl(d.name)
             });
             
             console.log(brandData);
             console.log("Execution");
             
-            let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
+            let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value) && d.month == month && !isNaN(d.month))
                 .sort((a,b) => b.value - a.value)
                 .slice(0,top_n);
 
@@ -200,7 +207,7 @@ export default {
                 .append('text')
                 .attrs({
                 class: 'label',
-                x: d => x(d.value)-10,
+                x: d => x(0)-20,
                 y: d => y(d.rank)+5+((y(1)-y(0))/2)+1,
                 'text-anchor': 'end'
                 })
@@ -228,13 +235,13 @@ export default {
                 x: d => x(d.value)+5,
                 y: d => y(d.rank)+5+((y(1)-y(0))/2)+1,
                 })
-                .text(d => d3.format(',.0f')(d.lastValue));
+                .text(d => d3.format('.2f')(d.lastValue));
             
             let yearText = svg.append('text')
                 .attrs({
                 class: 'yearText',
                 x: width-margin.right,
-                y: height-25
+                y: height-60
                 })
                 .styles({
                 'text-anchor': 'end'
@@ -248,7 +255,7 @@ export default {
             
             let ticker = d3.interval(e => {
             
-                yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
+                yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value) && d.month == month && !isNaN(d.month))
                 .sort((a,b) => b.value - a.value)
                 .slice(0,top_n);
                 
@@ -311,7 +318,7 @@ export default {
                 .append('text')
                 .attrs({
                     class: 'label',
-                    x: d => x(d.value)-10,
+                    x: x(0)-20, 
                     y: d => y(top_n+1)+5+((y(1)-y(0))/2),
                     'text-anchor': 'end'
                 })
@@ -328,7 +335,7 @@ export default {
                 .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: d => x(d.value)-10,
+                    x: x(0)-20, 
                     y: d => y(d.rank)+5+((y(1)-y(0))/2)+1
                     });
                 
@@ -338,7 +345,7 @@ export default {
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: d => x(d.value)-10,
+                    x: x(0)-20, 
                     y: d => y(top_n+1)+5
                     })
                     .remove();
@@ -394,7 +401,7 @@ export default {
                     x: d => x(d.value)+5,
                     y: d => y(top_n+1)+5,
                 })
-                .text(d => d3.format(',.0f')(d.lastValue))
+                .text(d => d3.format('.2f')(d.lastValue))
                 .transition()
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
@@ -411,9 +418,9 @@ export default {
                     y: d => y(d.rank)+5+((y(1)-y(0))/2)+1
                     })
                     .tween("text", function(d) {
-                        let i = d3.interpolateRound(d.lastValue, d.value);
+                        let i = d3.interpolateNumber(d.lastValue, d.value);
                         return function(t) {
-                            this.textContent = d3.format(',')(i(t));
+                            this.textContent = d3.format('.2f')(i(t));
                         };
                     });
                 
@@ -428,10 +435,16 @@ export default {
                     })
                     .remove();
                 
-                yearText.html(~~year);
+                yearText.html(~~year+" "+months[~~month]);
                 
-                if(year == 2019) ticker.stop();
-                year = d3.format('.1f')((+year) + 1);
+                if(year == 2019 && month == 10) ticker.stop();
+                if(month == 11){
+                    year = d3.format('.1f')((+year) + 1);
+                    month = d3.format('.1f')(0);
+                }
+                else{
+                    month = d3.format('.1f')((+month) + 1);
+                }
             },tickDuration);
 
             return svg.node();
