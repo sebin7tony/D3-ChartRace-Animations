@@ -1,0 +1,22 @@
+[
+    {
+        "symbol": "AMZN",
+        "date": "Jan 2000",
+        "price": 64.56
+    },
+    {
+        "symbol": "AMZN",
+        "date": "May 2000",
+        "price": 48.31
+    },
+    {
+        "symbol": "AMZN",
+        "date": "Aug 2005",
+        "price": 42.7
+    },
+    {
+        "symbol": "AMZN",
+        "date": "Apr 2006",
+        "price": 35.21
+    }
+]
