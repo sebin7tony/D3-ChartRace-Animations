@@ -1,22 +1,5 @@
 [
-    {
-        "symbol": "AMZN",
-        "date": "Jan 2000",
-        "price": 64.56
-    },
-    {
-        "symbol": "AMZN",
-        "date": "May 2000",
-        "price": 48.31
-    },
-    {
-        "symbol": "AMZN",
-        "date": "Aug 2005",
-        "price": 42.7
-    },
-    {
-        "symbol": "AMZN",
-        "date": "Apr 2006",
-        "price": 35.21
-    }
+    {"president":"George W. Bush","date":"2001-04-08","days":78,"approve_estimate":53.86935,"tooltip":"George W. Bush"},
+    {"president":"George W. Bush","date":"2002-09-10","days":598,"approve_estimate":64.64545,"tooltip":"George W. Bush"},
+    {"president":"Barack Obama","date":"2009-02-11","days":22,"approve_estimate":65.27031,"tooltip":"Barack Obama"}
 ]

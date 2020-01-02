@@ -13,8 +13,8 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-import stockdata from "../assets/stockdata.json"
-import event_lists from "../assets/event_list.json"
+import stockdata from "../assets/approval_ratings.json"
+//import event_lists from "../assets/event_list.json"
 
 export default {
     name : "LineChart",
@@ -26,15 +26,11 @@ export default {
     methods : {
         renderChart : function(){
             
-            var parseDate = d3.timeParse("%b %Y");
+            var parseDate = d3.timeParse("%Y-%m-%d");
             stockdata.forEach(d => {
-                d.price = isNaN(d.price) ? 0 : d.price,
+                d.days = +d.days,
+                d.approve_estimate = +d.approve_estimate
                 d.date = parseDate(d.date)
-            });
-
-            // Filter to one symbol; the S&P 500.
-            var values = stockdata.filter(function(d) {
-                return d.symbol == "AMZN";
             });
 
             const getImgUrl = function(imagename) {
@@ -47,6 +43,7 @@ export default {
                 }
                 return result;
             }
+            getImgUrl("")
 
             /*var extendXaxis = function(data,xaxis_name,limit,factor){
                 let prefix_len = limit*(1-factor);
@@ -70,17 +67,43 @@ export default {
 
             }*/
 
+            // Data preparation stage
+            var trump_values = stockdata.filter(function(d) {
+                return d.president == "George W. Bush";
+            });
+
+            var obama_values = stockdata.filter(function(d) {
+                return d.president == "Barack Obama";
+            });
+
+            var chart_data = [trump_values,obama_values]
+
+            let xAxis_data = "days";
+            let yAxis_data = "approve_estimate";
+            //let image_name = "president"
+
+            // Common code begins here
+
+            for(let values of chart_data){
+                values.sort((a, b) => (a[xAxis_data] > b[xAxis_data]) ? 1 : -1);
+            }    
+
             var limit = 60;
-            var counter = 0;
+            var counter = -1;
             var data_reduction_factor = 3/5;
-            let data = values.slice(0,limit)
+            
+            var sliced_chart_data = [];
+            for(let values of chart_data){
+                let data = values.slice(0,limit)
+                sliced_chart_data.push(data);
+            }
 
             var margin = {top: 300, right: 40, bottom: 20, left: 80},
                 width = 3600 - margin.right,
                 height = (window.innerHeight/2+300) ;
             
-            var x = d3.scaleTime()
-                .domain(d3.extent(data, function(d) { return d.date; }))
+            var x = d3.scaleLinear()
+                .domain(d3.extent(sliced_chart_data[0], function(d) { return d[xAxis_data]; }))
                 .range([0, width]);
 
             var y = window.y = d3.scaleLinear()
@@ -89,9 +112,9 @@ export default {
             var line = d3.line()
                 .curve(d3.curveBasis)
                 .x(function(d, i) { 
-                    return x(d.date); })
+                    return x(d[xAxis_data]); })
                 .y(function(d, i) { 
-                    return y(d.price); 
+                    return y(d[yAxis_data]); 
                 });
 
             var svg = d3.select("body").append("p").append("svg")
@@ -116,58 +139,71 @@ export default {
                 .attr("transform", "translate(" + margin.left + ", 0)")
                 .call(y.axis = d3.axisLeft().scale(y).ticks(5));
 
-            // Clipping start here
-            var path = svg.append("g")
-                .attr("class", "path container")
-                .attr("clip-path", "url(#clip)")
-            .append("path")
-                .data([data])
-                .attr("class", "line");
+            var XaxisLabel = svg.append("text")
+                    .data(sliced_chart_data[0])
+                    .attrs({
+                        class: 'XaxisLabel',
+                        x: width-750,
+                        y: height-100
+                    })
+                    .style('text-anchor', 'start')
 
 
-            // Appending various elements to svg
-            var yearText = svg.append("text")
-                .data([data])
-                .attrs({
-                    class: 'yearText',
-                    x: width-750,
-                    y: height-100
-                })
-                .style('text-anchor', 'start')
+            var image = [],name = [],path =[], value =[]; 
 
-            var image = svg.append("svg:image")
-                .data([data])
-                .attr('dx', -40)
-                .attr('dy', -100)
-                .attr('width', 80)
-                .attr('height', 80)
-                .attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
-                .attr("xlink:href", getImgUrl("amzn"))
-            
-            var name = svg.append("text")
-                .data([data])
-                .attr('class','ticker')
-                .attr('dx', 8)
-                .attr('dy', 3)
-                .attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
-                .style('text-anchor', 'start')
+            for(var i=0;i<sliced_chart_data.length;i++){
+                // Clipping start here
+                path[i] = svg.append("g")
+                    .attr("class", "path container")
+                    .attr("clip-path", "url(#clip)")
+                .append("path")
+                    .data(sliced_chart_data[i])
+                    .attr("class", "line"+i);
+
+                // Appending various elements to svg
+                image[i] = svg.append("svg:image")
+                    .data(sliced_chart_data[i])
+                    .attr('dx', -40)
+                    .attr('dy', -100)
+                    .attr('width', 80)
+                    .attr('height', 80)
+                    .attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
+                    .attr("xlink:href", getImgUrl(""))
+                
+                name[i] = svg.append("text")
+                    .data(sliced_chart_data[i])
+                    .attr('class','ticker')
+                    .attr('dx', 8)
+                    .attr('dy', 3)
+                    .attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
+                    .style('text-anchor', 'start')
+
+                value[i] = svg.append("text")
+                    .data(sliced_chart_data[i])
+                    .attr('class','ticker')
+                    .attr('dx', 8)
+                    .attr('dy', 3)
+                    .attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
+                    .style('text-anchor', 'start')
+            }
 
             // -------------------------------------------
             // Logic for event addition
             // -------------------------------------------
-            var tipList = [];
-            for(var tips in event_lists){
-                tips;
+
+            /*var tipList = []
+            
+            for(var k=0;k<event_lists.length;k++){
                 var tip = svg.append("svg:image")
-                    .data([event_lists])
+                    .data([event_lists[k]])
                     .attr('dx', -40)
                     .attr('dy', -100)
                     .attr('width', 80)
                     .attr('height', 80)
                     .attr("transform", "translate(" + -200 +", " + y(500) + ")")
-                    .attr("xlink:href", getImgUrl("amzn"));
+                    .attr("xlink:href", getImgUrl(event_lists[k]['tooltip']));
                 tipList.push(tip);
-            }
+            }*/
 
             // -------------------------------------------
             // Logic for dashboard
@@ -178,8 +214,9 @@ export default {
             // ----------------------------------------
             // declarations for tick function
             // ----------------------------------------            
-            var lineData = [];
-            lineData.push(data[0]);
+            var line_chart_data = [];
+            
+            //lineData.push(data[0]);
             var duration_speed = 100;
 
             tick();
@@ -187,28 +224,34 @@ export default {
             function tick() {   
 
                 counter = counter+1;
-                var previous_date_start = data[0].date;
+                var previous_date_start = sliced_chart_data[0][0][xAxis_data];
 
                 // ----------------------------------------
                 // resetting domain
                 // ---------------------------------------- 
-                if(values.length > counter){
-                    data = data.slice(1-data.length).concat(values[limit+counter-1]);
-                    lineData = data.slice(0,data_reduction_factor*limit);
-                    duration_speed = 800;
+                if(chart_data[0].length > counter){
+                    for(var i=0;i<sliced_chart_data.length;i++){
+                        sliced_chart_data[i] = sliced_chart_data[i].slice(1-sliced_chart_data[i].length).concat(chart_data[i][limit+counter]);
+                        line_chart_data[i] = sliced_chart_data[i].slice(0,data_reduction_factor*limit);
+                    }
+                    duration_speed = 600;
                 }
                 
-                x.domain(d3.extent(data, function(d) { return d.date; }));
-                y.domain([d3.min(values, function(d) { return d.price; }), d3.max(values, function(d) { return d.price; })]);
+                
+                x.domain(d3.extent(sliced_chart_data[0], function(d) { return d[xAxis_data]; }));
+                y.domain([33, 90]);
 
+                
                 // ----------------------------------------
                 // redrawing line
                 // ---------------------------------------- 
-                svg.select(".line")
-                    .attr("d", line(lineData))
-                    .transition()
-                    .ease(d3.easeLinear)
-                    .attr("transform", null);
+                for(i=0;i<line_chart_data.length;i++){
+                    svg.select(".line"+i)
+                        .attr("d", line(line_chart_data[i]))
+                        .transition()
+                        .ease(d3.easeLinear)
+                        .attr("transform", null);
+                }
 
                 // slide the x-axis left
                 xaxis.transition()
@@ -221,46 +264,70 @@ export default {
                 // ----------------------------------------
                 // elements animation
                 // ---------------------------------------- 
-                yearText.text(d =>{
-                    return d3.timeFormat("%Y %b")(lineData[lineData.length-1].date)
-                    });
+                /*XaxisLabel.text(d =>{
+                    return d3.timeFormat("%Y %b")(line_chart_data[0][line_chart_data[0].length-1][xAxis_data])
+                });*/
 
-                name.text(d =>{
-                    return lineData[lineData.length-1].price
-                    })
-                    .transition()
-                    .duration(100)
-                    .attr("transform", function(d) { 
-                        return "translate(" + x(lineData[lineData.length-2].date) +", " + y(lineData[lineData.length-1].price-4) + ")"});
-
-                image.transition()
-                    .duration(10)
-                    .attr("transform", function(d) { 
-                        return "translate(" + x(lineData[lineData.length-2].date)+5 +", " + y(lineData[lineData.length-1].price+7) + ")"}); 
-
-                for(var i=0;i<tipList.length;i++){
+                XaxisLabel.text(d =>{
+                    return line_chart_data[0][line_chart_data[0].length-1][xAxis_data]+" days"
+                });
+                
+                for(i=0;i<line_chart_data.length;i++){
                     
-                    console.log(tipList[0]);
+                    name[i].text(d =>{
+                        return d["president"]+" ("+line_chart_data[i][line_chart_data[i].length-1][yAxis_data]+")"
+                        })
+                        .transition()
+                        .duration(100)
+                        .attr("transform", function(d) { 
+                            return "translate(" + x(line_chart_data[i][line_chart_data[i].length-2][xAxis_data]) +", " + y(line_chart_data[i][line_chart_data[i].length-1][yAxis_data]) + ")"});
+
+                    /*value[i].text(d =>{
+                        return line_chart_data[i][line_chart_data[i].length-1][yAxis_data]
+                        })
+                        .transition()
+                        .duration(100)
+                        .attr("transform", function(d) { 
+                            return "translate(" + x(line_chart_data[i][line_chart_data[i].length-2][xAxis_data]) +", " + y(line_chart_data[i][line_chart_data[i].length-1][yAxis_data]-1) + ")"});*/
+
+                    image[i].transition()
+                        .duration(10)
+                        .attr("transform", function(d) { 
+                            return "translate(" + x(line_chart_data[i][line_chart_data[i].length-2][xAxis_data])+5 +", " + y(line_chart_data[i][line_chart_data[i].length-1][yAxis_data]+7) + ")"
+                        });
+
+                    }
+
+                     // ----------------------------------------
+                    // Path transition
+                    // ---------------------------------------- 
+                    path[0].transition()
+                        .duration(duration_speed)
+                        .ease(d3.easeLinear)
+                        .attr("transform", "translate(" + x(previous_date_start) + ")");
+
+                    path[1].transition()
+                        .duration(duration_speed)
+                        .ease(d3.easeLinear)
+                        .attr("transform", "translate(" + x(previous_date_start) + ")")
+                        .on("end", tick);
+
+                
+
+                // Tooltip animation
+
+                /*for(i=0;i<tipList.length;i++){
+                        
+                    //console.log(tipList[0]);
                     tipList[i].transition()
                         .duration(duration_speed)
                         .ease(d3.easeLinear)
                         .attr("transform", function(d) { 
-                            let xValue = x(parseDate(d[i].date));
-                            let yValue = parseDate(d[i].date) < lineData[lineData.length-1].date ? y(d[i].price+20) : -500;
+                            let xValue = x(d[xAxis_data]);
+                            let yValue = d[xAxis_data] < line_chart_data[0][line_chart_data[0].length-1][xAxis_data] ? y(d[yAxis_data]+10) : -500;
                             return "translate(" + xValue +", " + yValue + ")"
                         });
-                }
-                
-
-                // ----------------------------------------
-                // Path transition
-                // ---------------------------------------- 
-                path.transition()
-                    .duration(duration_speed)
-                    .ease(d3.easeLinear)
-                    .attr("transform", "translate(" + x(previous_date_start) + ")")
-                    .on("end", tick);
-
+                }*/
             }
         }
             //http://bl.ocks.org/atmccann/8966400
@@ -278,12 +345,18 @@ export default {
         font-size: 30px;
         font-family: Open Sans, sans-serif;
     }
-    .line{
+    .line0{
         stroke: green;
         fill : none;
         stroke-width: 4px;
     }
-    .yearText{
+
+    .line1{
+        stroke: red;
+        fill : none;
+        stroke-width: 4px;
+    }
+    .XaxisLabel{
         font-size: 170px;
         font-weight: 700;
         opacity: 0.25;
