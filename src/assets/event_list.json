@@ -1,5 +1,14 @@
 [
-    {"president":"George W. Bush","date":"2001-04-08","days":78,"approve_estimate":53.86935,"tooltip":"George W. Bush"},
-    {"president":"George W. Bush","date":"2002-09-10","days":598,"approve_estimate":64.64545,"tooltip":"George W. Bush"},
-    {"president":"Barack Obama","date":"2009-02-11","days":22,"approve_estimate":65.27031,"tooltip":"Barack Obama"}
+    {"president":"George W. Bush","date":"2001-09-11","days":232,"approve_estimate":71.22122,"tooltip":"2001_sept"},
+    {"president":"George W. Bush","date":"2002-09-04","days":592,"approve_estimate":64.94891,"tooltip":"2002_sept"},
+    {"president":"George W. Bush","date":"2001-10-07","days":260,"approve_estimate":89.11539,"tooltip":"2001_oct"},
+    {"president":"George W. Bush","date":"2003-03-18","days":787,"approve_estimate":58.05203,"tooltip":"2003_mar"},
+    {"president":"Barack Obama","date":"2009-02-17","days":28,"approve_estimate":63.86277,"tooltip":"2009_feb"},
+    {"president":"Barack Obama","date":"2009-10-09","days":262,"approve_estimate":54.61928,"tooltip":"2009_oct"},
+    {"president":"Barack Obama","date":"2010-03-23","days":427,"approve_estimate":49.42843,"tooltip":"2010_mar"},
+    {"president":"Barack Obama","date":"2011-05-02","days":832,"approve_estimate":51.10726,"tooltip":"2011_may"},
+    {"president":"Donald Trump","date":"2017-06-01","days":132,"approve_estimate":40.11364,"tooltip":"2017_jun"},
+    {"president":"Donald Trump","date":"2018-12-19","days":698,"approve_estimate":43.08572,"tooltip":"2018_dec"},
+    {"president":"Donald Trump","date":"2019-02-15","days":756,"approve_estimate":42.65232,"tooltip":"2019_feb"},
+    {"president":"Donald Trump","date":"2019-12-18","days":1062,"approve_estimate":44.370585,"tooltip":"2019_dec"}
 ]
