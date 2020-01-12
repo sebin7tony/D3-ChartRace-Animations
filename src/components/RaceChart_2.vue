@@ -2,7 +2,7 @@
 <template>
     <div style="margin : 15px;">
         <h3 style="margin-left:450px;font-weight: bold;font-size: 90px;margin-bottom: 10px;margin-top:30px; ">
-            Most popular programming languages from 2004 - 2019 (Popularity %)
+            US presidents with the highest approval rating in history(in %)
         </h3>
         <div id="chart">
         </div>
@@ -13,7 +13,7 @@
 
 import * as d3 from "d3";
 import "d3-selection-multi";
-import brandData from "../assets/programming.json";
+import brandData from "../assets/approval_ratings_barchartrace.json";
 //import brandData from "../assets/mobile_manufacture.json";
 //import india from "../assets/images/india.png";
 //var d3 = require('d3-scale','d3-array','d3-fetch','d3-selection','d3-timer','d3-color','d3-format','d3-ease','d3-interpolate','d3-axis','d3-selection-multi');
@@ -29,8 +29,8 @@ export default {
     methods : {
         renderChart : function() {
 
-            const tickDuration = 800
-            const top_n = 15;
+            const tickDuration = 1500
+            const top_n = 12;
 
             const height = 1650;
             const width = 3500;
@@ -113,10 +113,9 @@ export default {
                 'text-anchor': 'end'
                 })
                 .html('Source: Interbrand');*/
-            let year = 2004;
-            let month = 6;
+            let year = 60;
 
-            let months = {};
+            /*let months = {};
             months[0] = "Jan";
             months[1] = "Feb";
             months[2] = "Mar";
@@ -128,7 +127,7 @@ export default {
             months[8] = "Sep";
             months[9] = "Oct";
             months[10] = "Nov";
-            months[11] = "Dec";
+            months[11] = "Dec";*/
 
             //caption;
             //title;
@@ -136,18 +135,18 @@ export default {
 
             
             brandData.forEach(d => {
-                d.value = +d.value*100,
-                d.lastValue = +d.lastValue*100,
+                d.value = +d.value,
+                d.lastValue = +d.lastValue,
                 d.value = isNaN(d.value) ? 0 : d.value,
                 d.year = +d.year,
-                d.colour = d3.hsl(Math.random()*360,0.75,0.75)
+                d.colour = d3.hsl(Math.random()*360,0.50,0.60)
                 d.image = getImgUrl(d.name)
             });
             
             console.log(brandData);
             console.log("Execution");
             
-            let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value) && d.month == month && !isNaN(d.month))
+            let yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
                 .sort((a,b) => b.value - a.value)
                 .slice(0,top_n);
 
@@ -207,7 +206,7 @@ export default {
                 .append('text')
                 .attrs({
                 class: 'label',
-                x: d => x(0)-20,
+                x: d => x(d.value)-10,
                 y: d => y(d.rank)+5+((y(1)-y(0))/2)+1,
                 'text-anchor': 'end'
                 })
@@ -220,10 +219,10 @@ export default {
                 .attrs({
                     class: 'barImage',
                     x: x(0)-170,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90,
+                    y: d => y(d.rank)+25+((y(1)-y(0))/2)-90,
                     'xlink:href': d => d.image,
-                    'height' : '150px',
-                    'width' : '150px'
+                    'height' : '120px',
+                    'width' : '120px'
                 });
             
             svg.selectAll('text.valueLabel')
@@ -240,7 +239,7 @@ export default {
             let yearText = svg.append('text')
                 .attrs({
                 class: 'yearText',
-                x: width-margin.right,
+                x: width,
                 y: height-60
                 })
                 .styles({
@@ -250,12 +249,22 @@ export default {
 
                 // .html(~~year)
 
+            svg.append('text')
+                .attrs({
+                class: 'staticText',
+                x: width,
+                y: height-300
+                })
+                .styles({
+                'text-anchor': 'end'
+                })
+                .html("Approval rating after")
 
             
             
             let ticker = d3.interval(e => {
             
-                yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value) && d.month == month && !isNaN(d.month))
+                yearSlice = brandData.filter(d => d.year == year && !isNaN(d.value))
                 .sort((a,b) => b.value - a.value)
                 .slice(0,top_n);
                 
@@ -318,7 +327,7 @@ export default {
                 .append('text')
                 .attrs({
                     class: 'label',
-                    x: x(0)-20, 
+                    x: d => x(d.value)-10, 
                     y: d => y(top_n+1)+5+((y(1)-y(0))/2),
                     'text-anchor': 'end'
                 })
@@ -335,7 +344,7 @@ export default {
                 .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: x(0)-20, 
+                    x: d => x(d.value)-10, 
                     y: d => y(d.rank)+5+((y(1)-y(0))/2)+1
                     });
                 
@@ -345,7 +354,7 @@ export default {
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    x: x(0)-20, 
+                    x: d => x(d.value)-10, 
                     y: d => y(top_n+1)+5
                     })
                     .remove();
@@ -358,16 +367,16 @@ export default {
                 .attrs({
                     class: 'barImage',
                     x: x(0)-170,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90,
+                    y: d => y(d.rank)+25+((y(1)-y(0))/2)-90,
                     'xlink:href': d => d.image,
-                    'height' : '150px',
-                    'width' : '150px'
+                    'height' : '120px',
+                    'width' : '120px'
                 })
                 .transition()
                     .duration(tickDuration)
                     .ease(d3.easeLinear)
                     .attrs({
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90
+                    y: d => y(d.rank)+25+((y(1)-y(0))/2)-90
                     });
                 
                 imageLabels
@@ -376,7 +385,7 @@ export default {
                     .ease(d3.easeLinear)
                     .attrs({
                     x:  x(0)-170,
-                    y: d => y(d.rank)+5+((y(1)-y(0))/2)-90
+                    y: d => y(d.rank)+25+((y(1)-y(0))/2)-90
                     });
                 
                 imageLabels
@@ -386,7 +395,7 @@ export default {
                     .ease(d3.easeLinear)
                     .attrs({
                     x:  x(0)-170,
-                    y: d => y(top_n+1)+5
+                    y: d => y(top_n+1)+25
                     })
                     .remove();
 
@@ -435,16 +444,10 @@ export default {
                     })
                     .remove();
                 
-                yearText.html(~~year+" "+months[~~month]);
+                yearText.html(~~year+" days");
                 
-                if(year == 2019 && month == 10) ticker.stop();
-                if(month == 11){
-                    year = d3.format('.1f')((+year) + 1);
-                    month = d3.format('.1f')(0);
-                }
-                else{
-                    month = d3.format('.1f')((+month) + 1);
-                }
+                if(year == 1450) ticker.stop();
+                year = d3.format('.1f')((+year) + 5);
             },tickDuration);
 
             return svg.node();
@@ -479,10 +482,16 @@ text.label{
   font-weight: 100;
 }
 text.yearText{
-  font-size: 250px;
+  font-size: 240px;
   font-weight: 700;
   opacity: 0.25;
 }
+text.staticText{
+    font-size: 100px;
+    font-weight: 300;
+    opacity: 0.50;
+}
+
 .tick text {
   fill: #777777;
 }

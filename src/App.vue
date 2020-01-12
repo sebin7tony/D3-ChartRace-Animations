@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <LineChart />
+    <RaceChart />
   </div>
 </template>
 
 <script>
-//import RaceChart from './components/RaceChart_2.vue'
-import LineChart from './components/LineChart2.vue'
+import RaceChart from './components/RaceChart_2.vue'
+//import LineChart from './components/LineChart2.vue'
 
 export default {
   name: 'app',
   components: {
-    LineChart
+    RaceChart
   }
 }
 </script>
