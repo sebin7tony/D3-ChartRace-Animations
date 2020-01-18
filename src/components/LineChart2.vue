@@ -179,9 +179,9 @@ export default {
                 image[i] = svg.append("svg:image")
                     .data(sliced_chart_data[i])
                     .attr('x', width-500)
-                    .attr('y', i*220)
-                    .attr('width', 200)
-                    .attr('height', 200)
+                    .attr('y', i*300)
+                    .attr('width', 280)
+                    .attr('height', 280)
                     //.attr("transform", "translate(" + 800 +", " + y(2) + ")")
                     .attr("xlink:href", getImgUrl(sliced_chart_data[i][0][image_name]))
                 
@@ -196,8 +196,8 @@ export default {
                 value[i] = svg.append("text")
                     .data(sliced_chart_data[i])
                     .attr('class','imgLabel')
-                    .attr('x', width-250)
-                    .attr('y', (2*i+1)*110+(i*20))
+                    .attr('x', width-220)
+                    .attr('y', (2*i+1)*150+(i*20))
                     //.attr("transform", "translate(" + (width - margin.left - margin.right) +", " + y(0) + ")")
                     .style('text-anchor', 'start')
             }
@@ -215,8 +215,8 @@ export default {
                     .data([event_lists[k]])
                     //.attr('dx', 0)
                     //.attr('dy', 0)
-                    .attr('width', 700)
-                    .attr('height', 700)
+                    .attr('width', 1000)
+                    .attr('height', 1000)
                     .attr("transform", "translate(" + -200 +", " + y(900) + ")")
                     .attr("xlink:href", getImgUrl(event_lists[k]['tooltip']));
                 tipList.push(tip);
@@ -256,7 +256,7 @@ export default {
                 
                 
                 x.domain(d3.extent(sliced_chart_data[0], function(d) { return d[xAxis_data]; }));
-                y.domain([33, 90]);
+                y.domain([30, 90]);
 
                 
                 // ----------------------------------------
@@ -347,7 +347,7 @@ export default {
                         .ease(d3.easeLinear)
                         .attr("transform", function(d) { 
                             let xValue = x(d[xAxis_data]);
-                            let yValue = d[xAxis_data] < line_chart_data[0][line_chart_data[0].length-1][xAxis_data] ? y(d[yAxis_data]+20) : -900;
+                            let yValue = d[xAxis_data] < line_chart_data[0][line_chart_data[0].length-1][xAxis_data] ? y(d[yAxis_data]+20) : -1000;
                             return "translate(" + xValue +", " + yValue + ")"
                         });
                 }
@@ -365,25 +365,25 @@ export default {
 
 <style>
     text{
-        font-size: 30px;
-        font-family: Open Sans, sans-serif;
+        font-size: 50px;
+        font-family: "Times New Roman", Times, serif;;
     }
     .line0{
-        stroke: green;
+        stroke: #ff471a;
         fill : none;
-        stroke-width: 4px;
+        stroke-width: 10px;
     }
 
     .line1{
-        stroke: red;
+        stroke: #3366ff;
         fill : none;
-        stroke-width: 4px;
+        stroke-width: 10px;
     }
 
     .line2{
-        stroke: blue;   
+        stroke: #ff8c1a;   
         fill : none;
-        stroke-width: 4px;
+        stroke-width: 10px;
     }
 
     .XaxisLabel{
